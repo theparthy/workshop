@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const FullName = ({first, last, hasBirthday}) => {
 
@@ -8,7 +8,6 @@ const FullName = ({first, last, hasBirthday}) => {
 
   return (<h1>{fullName} {birthdayIcon}</h1>);
 }
-
 
 FullName.defaultProps = {
   first: "Enter",

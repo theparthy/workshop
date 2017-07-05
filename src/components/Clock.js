@@ -1,9 +1,8 @@
-import React, {Component} from 'react'
-
+import React, { Component } from 'react'
 
 class Clock extends Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       date: new Date(),
@@ -11,7 +10,7 @@ class Clock extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.timerID = setInterval(
       () => this.setState(
         {date: new Date()}
@@ -19,17 +18,18 @@ class Clock extends Component {
       1000
     );
   }
-  componentWillUnmount() {
+
+  componentWillUnmount () {
     clearInterval(this.timerID);
   }
 
-  render() {
+  render () {
     return (
-     <div>
-       <h1>Hello, {this.state.location}!</h1>
-       <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-     </div>
-   );
+      <div>
+        <h1>Hello, {this.state.location}!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
   }
 }
 
