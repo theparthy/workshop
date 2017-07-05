@@ -55,7 +55,7 @@ class App extends Component {
           <h2>Welcome to React-workshop</h2>
         </div>
         <div style={{width: '100vw', height: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <ContactCard entries={Persons}/>
+          <ContactCard person={Persons[0]}/>
         </div>
       </div>
     );

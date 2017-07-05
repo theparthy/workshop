@@ -9,7 +9,7 @@ class ContactCard extends Component {
   state = {showEntry: 'email'}
 
   render () {
-    const {email, phone, gender, location, dob, picture, name} = this.props.entries[0];
+    const {email, phone, gender, location, dob, picture, name} = this.props.person;
     const entries = {email, phone, gender, location, dob};
     return (
       <Paper style={{
@@ -22,7 +22,7 @@ class ContactCard extends Component {
       }}>
         <Avatar image={picture.large} {...name}/>
         <SwipeableViews index={this.state.slideIndex}>
-          {Object.keys(entries).map((entry, idx) => <Entry key={idx + entry} type={entry} data={entries[entry]}/>)}
+          {Object.keys(entries).map((entry, idx) => <Entry key={idx} type={entry} data={entries[entry]}/>)}
         </SwipeableViews>
         <ContactEntries entries={entries} onSelect={slideIndex => this.setState({slideIndex})}/>
       </Paper>
