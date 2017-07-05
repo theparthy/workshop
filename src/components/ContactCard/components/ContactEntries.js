@@ -5,8 +5,9 @@ const ContactEntries = ({entries = [], onSelect}) => {
   const TabsToDisplay = Object.keys(entries).map((entry, idx) =>
     <Tab
       key={idx}
+      value={idx}
       label={entry.toUpperCase()}
-      onClick={() => onSelect(entry)}
+      onClick={() => onSelect(idx)}
     />
   )
 
