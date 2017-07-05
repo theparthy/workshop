@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FullName from './components/FullName';
+import Clock from './components/Clock'
 
 import logo from './logo.svg';
 
@@ -40,6 +41,8 @@ class App extends Component {
           <h2>Welcome to React-workshop</h2>
         </div>
         {RenderPersons}
+        <Clock/>
+
       </div>
     );
   }
