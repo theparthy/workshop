@@ -36,34 +36,20 @@ export function fetchIt (url, options = {}) {
         if (response.status >= 200 && response.status < 300) {
           return response.json();
         }
-        else if (response.status == 401) {
-          throw {
-            name: 'SessionExpiredError',
-            message: response.statusText
-          };
+        else if (response.status === 401) {
+          throw new Error(response.statusText);
         }
-        else if (response.status == 429) {
-          throw {
-            name: 'RateLimitExceeded',
-            message: response.statusText
-          };
+        else if (response.status === 429) {
+            throw new Error(response.statusText);
         }
         else if (response.status >= 400 && response.status < 500) {
           return response.json()
             .then(jsonResponse => {
-              throw {
-                name: 'HttpStatusError',
-                message: response.statusText,
-                status: response.status,
-                response: jsonResponse
-              };
+                throw new Error(response.statusText);
             });
         }
-        throw {
-          name: 'ServerError',
-          status: response.status,
-          message: response.statusText
-        };
+        throw new Error(response.statusText);
+
       })
       .then(response => resolve(response))
       .catch(e => reject(e));
