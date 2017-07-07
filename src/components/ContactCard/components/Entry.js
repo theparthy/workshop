@@ -2,19 +2,17 @@ import React from 'react'
 import Subheader from 'material-ui/Subheader'
 
 const subHeadlineText = type => {
-  switch (type) {
-    case 'email':
-      return 'My e-Mail is';
-    case 'phone':
-      return 'Give me call';
-    case 'gender':
-      return 'I am a';
-    case 'location':
-      return 'I live in';
-    case 'dob':
-      return 'I was born on ';
-    default:
-      return 'OOOPS!!!!!!';
+  const Headlines = {
+    email: 'My e-Mail is',
+    phone: 'Give me call',
+    gender: 'I am a',
+    location: 'I live in',
+    dob: 'I was born on',
+  };
+  try {
+      return Headlines[type];
+  }catch (e){
+      throw new Error('HeadLine Text not Found');
   }
 }
 const convertData = (type, data) => {
