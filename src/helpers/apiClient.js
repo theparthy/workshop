@@ -64,4 +64,4 @@ export function fetchIt (url, options = {}) {
   });
 }
 
-export const getRandomUser = () => fetchIt('https://ransdtdomuser.me/api/?results=90');
+export const getRandomUser = () => fetchIt('https://randomuser.me/api/?results=90');
