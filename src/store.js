@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import reduxThunk from 'redux-thunk'
 // import { browserHistory } from "react-router";
 // import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import { reducers } from "./reducers/index";
 
 
 // add the middlewares
-let middlewares = [];
+let middlewares = [reduxThunk];
 // add the router middleware
 // middlewares.push(routerMiddleware(browserHistory));
 
@@ -19,11 +20,6 @@ if (process.env.NODE_ENV !== 'production' && window.devToolsExtension) {
 }
 
 // create the store
-const store = createStore(reducers, middleware);
-//const history = syncHistoryWithStore(browserHistory, store);
+export const store = createStore(reducers, middleware);
+//export const history = syncHistoryWithStore(browserHistory, store);
 
-// export
-export {
-  store,
- // history
-};

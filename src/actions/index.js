@@ -1,26 +1,27 @@
-export const USER_SET_TOKEN = 'USER_SET_TOKEN'
-export const CONTACT_LIST_REQUEST = 'CONTACT_LIST_REQUEST'
+import { getRandomUser } from '../helpers/apiClient'
+
 export const CONTACT_LIST_REQUEST_SUCCEEDED = 'CONTACT_LIST_REQUEST_SUCCEEDED'
 export const CONTACT_LIST_REQUEST_FAILED = 'CONTACT_LIST_REQUEST_FAILED'
 export const CONTACT_LIST_REQUEST_IN_PROGRESS = 'CONTACT_LIST_REQUEST_IN_PROGRESS'
 
-export const setToken = token => {
-  return {
-    type: USER_SET_TOKEN,
-    payload: {token}
-  }
+
+export const requestContactList = () => (dispatch) => {
+  dispatch(requestListInProgress());
+  getRandomUser()
+    .then((response) => {
+      dispatch(requestListSucceeded(response.results));
+    })
+    .catch((error) => {
+      dispatch(requestListFailed(error));
+    });
 }
 
-export const requestContactList = () => {
-  return {
-    type: CONTACT_LIST_REQUEST
-  }
-}
-
-export const requestListSucceeded = result => {
+export const requestListSucceeded = contacts => {
   return {
     type: CONTACT_LIST_REQUEST_SUCCEEDED,
-    payload: result
+    payload: {
+      contacts: contacts
+    }
   }
 }
 

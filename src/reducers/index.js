@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import ContactList from './ContactList'
 // import { routerReducer } from "react-router-redux";
 
 
@@ -6,4 +7,5 @@ import { combineReducers } from "redux";
 export const reducers = combineReducers({
   // routing: routerReducer,
   // your reducer here
+  ContactList
 });
